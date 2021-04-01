@@ -17,6 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'face',
+        'jsat_navi_id',
         'name',
         'email',
         'password',

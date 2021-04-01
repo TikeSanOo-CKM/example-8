@@ -1,77 +1,482 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
 
-                <div class="card-body">
+  <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    JSAT NAVI | アカウント登録
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <script src="https://kit.fontawesome.com/c950b74c85.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link href="{{asset('css/jsat-navi-style.css')}}" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+</head>
+
+<body class="off-canvas-sidebar">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
+    <div class="container">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">JSAT NAVI</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">
+              <i class="material-icons">dashboard</i>
+              ホーム
+            </a>
+          </li>
+          <li class="nav-item  active ">
+            <a href="{{route('login')}}" class="nav-link">
+              <i class="material-icons">person_add</i>
+              ログイン
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="wrapper wrapper-full-page">
+    <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('{{asset('img/register.jpg')}}')">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 ml-auto mr-auto">
+            <div class="card card-signup">
+              <h2 class="card-title text-center">アカウント登録</h2>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-5 ml-auto">
+                    <div class="info info-horizontal">
+                      <div class="icon icon-rose">
+                        <i class="material-icons">timeline</i>
+                      </div>
+                      <div class="description">
+                        <h4 class="info-title">JSAT NAVIにようこそ</h4>
+                        <p class="description">
+                          JSAT NAVIは、創作をする人、それを応援する人、ものづくりが好きなみんなのための街のような場所。
+                          好みのクリエイターやコンテンツを見つけたり、自分のつくりたいものをつくったりして楽しめます。
+                          いっしょに、創作の輪を広げていきましょう。
+                        </p>
+                      </div>
+                    </div>
+                    <div class="info info-horizontal">
+                      <div class="icon icon-primary">
+                        <i class="material-icons">code</i>
+                      </div>
+                      <div class="description">
+                        <h4 class="info-title">JSAT NAVIにようこそ</h4>
+                        <p class="description">
+                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="info info-horizontal">
+                      <div class="icon icon-info">
+                        <i class="material-icons">group</i>
+                      </div>
+                      <div class="description">
+                        <h4 class="info-title">JSAT NAVIにようこそ</h4>
+                        <p class="description">
+                          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5 mr-auto">
+                    <div class="social text-center">
+                      <h4 class="mt-3">SNSで登録</h4></h4>
+                      <button class="btn btn-just-icon btn-round btn-facebook">
+                        <i class="fa fa-facebook"> </i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                      </button>
+                      <button class="btn btn-just-icon btn-round btn-dribbble">
+                        <i class="fab fa-instagram"></i>
+                      </button>
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="form-group has-default">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="material-icons">face</i>
+                                </span>
+                              </div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                              <input id="face" type="text" placeholder="クリエイター名" class="form-control @error('face') is-invalid @enderror" name="face" value="{{ old('face') }}" required autocomplete="face">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
+                                @error('face')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group has-default">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="material-icons">face</i>
+                                </span>
+                              </div>
+                              <input id="jsat_navi_id" type="text" placeholder="JSAT NAVI ID" class="form-control @error('jsat_navi_id') is-invalid @enderror" name="jsat_navi_id" value="{{ old('jsat_navi_id') }}" required autocomplete="jsat_navi_id">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              @error('jsat_navi_id')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        <div class="form-group has-default">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="material-icons">mail</i>
+                                </span>
+                              </div>
+                              <input id="email" type="email" placeholder="メールアドレス" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
                             </div>
-                        </div>
+                          </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                          <div class="form-group has-default">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                  <i class="material-icons">lock_outline</i>
+                                </span>
+                              </div>
+                               <input id="password" type="password" placeholder="パスワード" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="email">
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
                             </div>
-                        </div>
+                          </div>
+                          <div>
+                            TODO recapchaの実装
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="" checked="">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                              <a href="#something">利用規約</a>に同意する
+                            </label>
+                          </div>
+                          <div class="text-center">
+                          <!--  <a href="#pablo" class="btn btn-primary btn-round mt-4">登録（無料）</a> -->
+                          <button type="submit" class="btn btn-primary">
+                            登録（無料）
+                        </button>
+                          </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
+
                     </form>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <div class="copyright">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, JSAT NAVI
+          </div>
+        </div>
+      </footer>
     </div>
-</div>
-@endsection
+  </div>
+  <!--   Core JS Files   -->
+
+  <script src="{{asset('js/core/jquery.min.js')}}"></script>
+  <script src="{{asset('js/core/popper.min.js')}}"></script>
+  <script src="{{asset('js/core/bootstrap-material-design.min.js')}}"></script>
+  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+
+
+  <!-- Plugin for the momentJs  -->
+  <script src="{{asset('js/plugins/moment.min.js')}}"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="{{asset('js/plugins/sweetalert2.js')}}"></script>
+
+  <!-- Forms Validations Plugin -->
+  <script src="{{asset('js/plugins/jquery.validate.min.js')}}"></script>
+
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="{{asset('js/plugins/jquery.bootstrap-wizard.js')}}"></script>
+
+
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="{{asset('js/plugins/bootstrap-selectpicker.js')}}"></script>
+
+
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="{{asset('js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
+   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+   <script src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+
+
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="{{asset('js/plugins/bootstrap-tagsinput.js')}}"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="{{asset('js/plugins/jasny-bootstrap.min.js')}}"></script>
+   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="{{asset('js/plugins/fullcalendar.min.js')}}"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="{{asset('js/plugins/jquery-jvectormap.js')}}"></script>
+   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="{{asset('js/plugins/nouislider.min.js')}}"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="{{asset('js/plugins/arrive.min.js')}}"></script>
+  <!--  Google Maps Plugin    -->
+   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="{{asset('js/plugins/chartist.min.js')}}"></script>
+   <!--  Notifications Plugin    -->
+  <script src="{{asset('js/plugins/bootstrap-notify.js')}}"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{asset('js/material-dashboard.js?v=2.2.2')}}"></script>
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            if ($(".sidebar").length != 0) {
+              var ps = new PerfectScrollbar('.sidebar');
+            }
+            if ($(".sidebar-wrapper").length != 0) {
+              var ps1 = new PerfectScrollbar('.sidebar-wrapper');
+            }
+            if ($(".main-panel").length != 0) {
+              var ps2 = new PerfectScrollbar('.main-panel');
+            }
+            if ($(".main").length != 0) {
+              var ps3 = new PerfectScrollbar('main');
+            }
+
+          } else {
+
+            if ($(".sidebar").length != 0) {
+              var ps = new PerfectScrollbar('.sidebar');
+              ps.destroy();
+            }
+            if ($(".sidebar-wrapper").length != 0) {
+              var ps1 = new PerfectScrollbar('.sidebar-wrapper');
+              ps1.destroy();
+            }
+            if ($(".main-panel").length != 0) {
+              var ps2 = new PerfectScrollbar('.main-panel');
+              ps2.destroy();
+            }
+            if ($(".main").length != 0) {
+              var ps3 = new PerfectScrollbar('main');
+              ps3.destroy();
+            }
+
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      md.checkFullPageBackgroundImage();
+    });
+  </script>
+</body>
+
+</html>
