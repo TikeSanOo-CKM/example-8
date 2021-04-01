@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,17 +13,23 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+Route::get('/register', function () {
     return view('auth.register');
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['namespace' => 'client',
+            'prefix' => 'client',
+            'middleware' => 'auth'], function() {
+                Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+                Route::get('/recommend', function () {
+                    return view('client.recommend');
+                });
+});
 Route::get('logout', function ()
 {
-    auth()->logout();
+   // auth()->logout();
     Session()->flush();
 
-    return Redirect::to('/');
+    return Redirect::to('/register');
 })->name('logout');

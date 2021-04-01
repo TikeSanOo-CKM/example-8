@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}">
 
-    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         JSAT NAVI | アカウント登録
@@ -15,9 +15,9 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <script src="https://kit.fontawesome.com/c950b74c85.js" crossorigin="anonymous"></script>
     <!-- CSS Files -->
-    <link href="{{asset('css/jsat-navi-style.css')}}" rel="stylesheet" />
+    <link href="{{ asset('css/jsat-navi-style.css') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
 </head>
 
 <body class="off-canvas-sidebar">
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav-item  active ">
-                        <a href="{{route('login')}}" class="nav-link">
+                        <a href="{{ route('login') }}" class="nav-link">
                             <i class="material-icons">person_add</i>
                             ログイン
                         </a>
@@ -53,7 +53,7 @@
     </nav>
     <!-- End Navbar -->
     <div class="wrapper wrapper-full-page">
-        <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('{{asset('img/register.jpg')}}')">
+        <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('{{ asset('img/register.jpg') }}')">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 ml-auto mr-auto">
@@ -196,12 +196,10 @@
                                             </div>
                                             <div class="text-center">
                                                 <!--  <a href="#pablo" class="btn btn-primary btn-round mt-4">登録（無料）</a> -->
-                                                <button type="submit" class="btn btn-primary">
+                                                <button type="submit" class="btn btn-primary btn-round mt-4">
                                                     登録（無料）
                                                 </button>
                                             </div>
-
-
                                         </form>
                                     </div>
                                 </div>
@@ -224,56 +222,56 @@
     </div>
     <!--   Core JS Files   -->
 
-    <script src="{{asset('js/core/jquery.min.js')}}"></script>
-    <script src="{{asset('js/core/popper.min.js')}}"></script>
-    <script src="{{asset('js/core/bootstrap-material-design.min.js')}}"></script>
-    <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{ asset('js/core/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
 
 
     <!-- Plugin for the momentJs  -->
-    <script src="{{asset('js/plugins/moment.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/moment.min.js') }}"></script>
     <!--  Plugin for Sweet Alert -->
-    <script src="{{asset('js/plugins/sweetalert2.js')}}"></script>
+    <script src="{{ asset('js/plugins/sweetalert2.js') }}"></script>
 
     <!-- Forms Validations Plugin -->
-    <script src="{{asset('js/plugins/jquery.validate.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/jquery.validate.min.js') }}"></script>
 
     <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-    <script src="{{asset('js/plugins/jquery.bootstrap-wizard.js')}}"></script>
+    <script src="{{ asset('js/plugins/jquery.bootstrap-wizard.js') }}"></script>
 
 
     <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-    <script src="{{asset('js/plugins/bootstrap-selectpicker.js')}}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}"></script>
 
 
     <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <script src="{{asset('js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}"></script>
     <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-    <script src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
 
 
     <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-    <script src="{{asset('js/plugins/bootstrap-tagsinput.js')}}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
     <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <script src="{{asset('js/plugins/jasny-bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/jasny-bootstrap.min.js') }}"></script>
     <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-    <script src="{{asset('js/plugins/fullcalendar.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/fullcalendar.min.js') }}"></script>
     <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-    <script src="{{asset('js/plugins/jquery-jvectormap.js')}}"></script>
+    <script src="{{ asset('js/plugins/jquery-jvectormap.js') }}"></script>
     <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="{{asset('js/plugins/nouislider.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/nouislider.min.js') }}"></script>
     <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
     <!-- Library for adding dinamically elements -->
-    <script src="{{asset('js/plugins/arrive.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/arrive.min.js') }}"></script>
     <!--  Google Maps Plugin    -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chartist JS -->
-    <script src="{{asset('js/plugins/chartist.min.js')}}"></script>
+    <script src="{{ asset('js/plugins/chartist.min.js') }}"></script>
     <!--  Notifications Plugin    -->
-    <script src="{{asset('js/plugins/bootstrap-notify.js')}}"></script>
+    <script src="{{ asset('js/plugins/bootstrap-notify.js') }}"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="{{asset('js/material-dashboard.js?v=2.2.2')}}"></script>
+    <script src="{{ asset('js/material-dashboard.js?v=2.2.2') }}"></script>
     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script>
         $(document).ready(function() {
@@ -349,28 +347,37 @@
 
                     var new_image = $(this).find("img").attr('src');
 
-                    if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+                    if ($sidebar_img_container.length != 0 && $(
+                            '.switch-sidebar-image input:checked').length != 0) {
                         $sidebar_img_container.fadeOut('fast', function() {
-                            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+                            $sidebar_img_container.css('background-image', 'url("' +
+                                new_image + '")');
                             $sidebar_img_container.fadeIn('fast');
                         });
                     }
 
-                    if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+                    if ($full_page_background.length != 0 && $(
+                            '.switch-sidebar-image input:checked').length != 0) {
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find(
+                            'img').data('src');
 
                         $full_page_background.fadeOut('fast', function() {
-                            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                            $full_page_background.css('background-image', 'url("' +
+                                new_image_full_page + '")');
                             $full_page_background.fadeIn('fast');
                         });
                     }
 
                     if ($('.switch-sidebar-image input:checked').length == 0) {
-                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+                        var new_image = $('.fixed-plugin li.active .img-holder').find("img")
+                            .attr('src');
+                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find(
+                            'img').data('src');
 
-                        $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-                        $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+                        $sidebar_img_container.css('background-image', 'url("' + new_image +
+                            '")');
+                        $full_page_background.css('background-image', 'url("' +
+                            new_image_full_page + '")');
                     }
 
                     if ($sidebar_responsive.length != 0) {
