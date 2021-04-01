@@ -155,9 +155,9 @@
                                   <i class="material-icons">mail</i>
                                 </span>
                               </div>
-                              <input id="email" type="email" placeholder="メールアドレス" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                              <input id="mail" type="email" placeholder="メールアドレス" class="form-control @error('mail') is-invalid @enderror" name="mail" value="{{ old('mail') }}" required autocomplete="mail">
 
-                              @error('email')
+                              @error('mail')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
@@ -172,7 +172,7 @@
                                   <i class="material-icons">lock_outline</i>
                                 </span>
                               </div>
-                               <input id="password" type="password" placeholder="パスワード" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="email">
+                               <input id="password" type="password" placeholder="パスワード" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="mail">
 
                               @error('password')
                                   <span class="invalid-feedback" role="alert">

@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'face' => ['required', 'string', 'max:255'],
             'jsat_navi_id' => ['required', 'string', 'max:255'],
             //'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'mail' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
     }
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'face' => $data['face'],
             'jsat_navi_id' => $data['jsat_navi_id'],
           //  'name' => $data['name'],
-            'email' => $data['email'],
+            'mail' => $data['mail'],
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -20,7 +20,7 @@ class User extends Authenticatable
         'face',
         'jsat_navi_id',
         'name',
-        'email',
+        'mail',
         'password',
     ];
 

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('face');
             $table->string('jsat_navi_id');
             //$table->string('name');
-            $table->string('email')->unique();
+            $table->string('mail')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
